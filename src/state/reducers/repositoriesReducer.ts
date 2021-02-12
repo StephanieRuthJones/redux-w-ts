@@ -7,8 +7,14 @@ interface RepositoriesState {
     data: string[]
 }
 
+const initialState = {
+    loading: false,
+    error: null,
+    data: []
+}
+
 const reducer = (
-    state: RepositoriesState,
+    state: RepositoriesState = initialState,
     action: Action
 ): RepositoriesState => {
     //switch statements are type guards, so know that if case applies, the action is as defined
