@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useSelector } from 'react-redux' //like map state to props func
+import { useSelector } from '../hooks/useSelector' //like map state to props func
 import { useActions } from '../hooks/useActions'
 
 const RepositoriesList: React.FC = () => {
@@ -17,6 +17,10 @@ const RepositoriesList: React.FC = () => {
             <input value={term} onChange={e => setTerm(e.target.value)} />
             <button>Search</button>
         </form>
+        {error && <h3>{error}</h3>}
+        {loading && <h3>Loading...</h3>}
+        {!error && !loading &&
+            data.map(name => <div key={name}>{name}</div>)}
     </div>
 }
 
